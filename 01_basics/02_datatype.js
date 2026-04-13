@@ -88,4 +88,34 @@ console.log(typeof null); // object
 console.log(typeof myFuntion) // -> it will give type as function
 
 
+/// ++++++++++++++++++++++++++++++++++++++++
+/// ----- Stack and heap memory Concept -----------//
 
+// types of memory 
+// stack (primitive) --> here we will get the copy of declaredvariable , 
+// heap (non- primitive) --> here we will get reference of original value
+
+let myYoutubeName = "Shubham"
+let anotherName = myYoutubeName
+anotherName = "LearnNewFramework"
+
+console.log(myYoutubeName) // --> Shubham
+console.log(anotherName) // -> learnNewFrameWork
+
+// so in above the another name value only changes and it does not change myYoutube value
+// anotherName uses the copy of myYoutubeName
+// It uses Stack here.  In this the copy of the original value is used 
+
+let userOne = {
+    email : "shubam.com",
+    upi: "use@ybl",
+}
+let userTwo = userOne
+
+userTwo.email = "satyam.com"
+
+console.log(userOne.email) //-> satyam.com
+console.log(userTwo.email) //-> satyam.com
+
+// In this it uses heap. and  here it uses the same value in userTwo
+// it uses the reference of the stored value is passed 
