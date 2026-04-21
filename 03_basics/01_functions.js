@@ -58,3 +58,28 @@ console.log(calculateCartPrice(200, 300, 400, 500))
 
 // o/p --> val1 will be 200 , val2 will be 300 , num1 will be [400,500]
 
+// pass object in a function 
+
+const user = {
+    username : "shubham",
+    age: 18
+}
+
+function handleObject(anyObject) {
+   console.log(`user is ${anyObject.username} and age is ${anyObject.age}`)
+}
+
+handleObject(user)
+// or
+
+handleObject({username : "shubham", age: 18})
+
+// passing array in function 
+
+const myArr = [ 100, 200 ,300]
+
+function returnSecondValue(anyArray){
+  return anyArray[1]
+}
+
+returnSecondValue(myArr)
