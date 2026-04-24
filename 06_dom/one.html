@@ -1,0 +1,104 @@
+<!-- /// +++ DOM & DOM manipulation //
+
+
+// document.getElementById('firstHeadin')
+
+//document.getElementById('title').getAttribute('class')
+//document.getElementById('title').setAttribute('class', 'test heading'). // it will change the attribute text
+
+const title = document.getElementById('title')
+title.style.backgroundColor ="green"
+title.style.padding = "15 px"
+title.style.borderRadius = "15 px"
+
+// how to take out value from it 
+
+title.innerText. ====> it give the text which is visible on the UI 
+
+title.innerHTML. ===> it will give text with the inner html value if you have added like span property 
+
+title.textContent. === > it gives the complete text content the which is hidden also in span 
+
+
+document.querySelector("h1")
+document.querySelector(#title)
+document.querySelector('.heading') //we need to add . for class
+document.querySelector('input[type = "password"]')
+
+
+const myUl = document.querSelector('ul')
+myUl.querySelector('li')
+const turnGren = myUl.querySelector('li')
+turnGren.style.backgroundColor = 'Green'
+turnGren.style.padding = 10px
+turnGren.innerText
+turnGren.innerText  = "five"
+
+
+// querySleelctorAll will give Node List
+const tempUlList = document.querySelectorAll('li')// it will give all items, it seems to be like an array but it is not 
+// it gives nodeList and it has for each loop to work on but not has map 
+
+tempUlList[0].style.color = 'green'
+
+tempUlList.forEach(function (item){item.style.backgroundColor = 'green'})
+
+
+// example from JS wikepedia
+const myH2 = document.querySelectorAll('.heading')
+myH2.forEach(function (item) {
+  item.style.color = 'orange';
+  item.style.backgroundColor = 'red';
+  item.style.padding = 10px;
+  item.innerText = "shubham"
+})
+
+
+// getElelmtBylassName will give HTML collection it os also not an array or node list
+
+const templassList = document.getElementByClassName('list-item')
+const myConvertedClassList = Array.from(tempClassList)
+myConvertedClassList.forEach(function(li){
+  li.style.color = 'orange'
+})
+
+
+
+
+
+// manipulation 
+// document.getElementById('firstHeadin').innerHTML = "<h1> chai aur code </h1>" -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
