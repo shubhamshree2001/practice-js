@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // settimeout in js -- it needs handler -- its a callback which does not have any name  
+    // setInterval(function(){}) // it executes after specific interval everytime
+    //    setTimeout(function(){
+    //     console.log("shubham")
+    //    }, 2000) // it executes only once
+
+    // const sayShubham = function () {
+    //     console.log("hi shubham")
+    // }
+    // setTimeout(sayShubham, 2000)
+
+
+    const changeText = function () {
+        document.querySelector('h1').innerHTML = "JS series"
+    }
+
+    const timeout = setTimeout(changeText, 2000)
+
+    // now suppose a settimeout is set but before it executes you want to remove that timeout 
+    // for we will use clearTimeout and it will need reference for which timeout you wantto remove 
+
+    document.querySelector('#stop').addEventListener('click', function () {
+        clearTimeout(timeout)
+        //console.log("STOPPED")
+    })
+
+</script>
+
+</html>
