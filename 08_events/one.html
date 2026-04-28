@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <!--             <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="alert('owl')"></li>
+ -->
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="""></li>
+           <!--  // adding onclick like this is not the scalable approach  -->
+            <li><img width=" 200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<!-- // javascript is a sequential run program
+//discussing about activities of browsers events
+// trynig to implement action on clicking over image -->
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+
+    //attachEvent() is also used earlier for event capture for internet explorer
+    // jQuery - onEvent() used earlier
+
+    // lIst of event which we need to study/work
+    //type, timestamp,  defaultPrevented
+    //target , toElement, srcElement, currentTarget
+    //client position, screen x , screen Y
+    // alt key, shift key, ctrl key , key code
+
+    // default value of third parameter is false sometimes some event are there which can be executed without writing true or false
+    // using on click can cause some issue so its better to use event listener along with click it also gives ability to propagation
+    // Event propagation has two contexxt 
+    // 1. Event Bubbling. // by default value false (false is event bubbling)
+    // 2. Event Capturing
+
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     console.log('event clicked inside ul')
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function (e) {
+    //     //   alert('owl click')
+    //     console.log('event clicked over owl ')
+    //     e.stopPropagation() // this will stop bubble up. it will only record this event 
+    // }, false)
+
+    // // to stop click action over the google button 
+    //     document.getElementById('google').addEventListener('click', function (e) {
+    //         e.stopPropagation()
+    //     e.preventDefault()
+    // }, false)
+
+    // when a image is clicked hide that image 
+    // but the below function has certain issue
+    //when you click on any other place in list item view or on google button it removes all the items to fix that writing logic again
+    // document.querySelector('#images').addEventListener('click', function(e){
+    //     // selecting the entire parent to remove that is list item (not only image)
+    //     console.log(e.target.parentNode);
+
+    //     let removeIt = e.target.parentNode
+    //     removeIt.remove()
+    //     // two ways to remove 
+    //     // below one is by selecting parent first then removing child
+    //     //removeIt.parentNode.removeChild(removeIt)
+    // }, false)
+
+    // this will resolve the issue 
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.tagName) // it will give o/p "IMG"
+        if(e.target.tagName === "IMG"){
+        let removeIt = e.target.parentNode
+        removeIt.remove()
+        }
+    }, false)
+
+</script>
+
+</html>
+
+<!-- basic question related to javascript 
+1. click over some portion and get the timestamp
+2. suppose user have clicked at some portion create a circle at that position -->
+
+
+<!-- Event Bubbling : tracking event from inside to outside. So first it tracks the inner event then it records outer event.
+So in abover when the bool value set to false 
+first event clicked over owl
+then event clicked over ul -->
+
+<!-- Capturing Mode : when the bool value is set to true. So it tracks from outside to inside.
+first it will : event clicked inside ul
+then event clicked over owl -->
