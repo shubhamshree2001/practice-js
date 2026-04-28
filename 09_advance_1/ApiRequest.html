@@ -1,0 +1,43 @@
+// earlier we use XML HTTP request
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+</body>
+<script>
+    // new XMLHTTPRequest used to send and receive response 
+    const requestUrl = 'https://api.github.com/users/shubhamshree2001'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl) // sending request  -- but this operation does not send s request 
+    console.log(xhr.readyState); // to chenge the status code 
+    xhr.onreadystatechange = function(){ // onReadyStaeChange tracks the state changes 
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+              //console.log(typeof data); here it will give string 
+               console.log(this.responseText) // you will get responseText fromt the api , this keyword is for the current context
+            const data = JSON.parse(this.responseText)  // most of the time we recive response in for of string so we need to parse it
+            // json.parse will covert string to json
+            console.log(typeof data); // it will give object
+            console.log(data.followers);
+        }
+    }
+    xhr.send();
+</script>
+</html>
+
+<!--   // theory of console log
+// cosole log does not exist in documentation or guidelines of javascript 
+// it is a debugging tool
+// it is a browser dev tool 
+// Javascript runtime injects it 
+// javascripts runs using V8 engine it is written in c++
+// in v8 repo -- in src -- there is d8.console.cc it ive console .log  -->
