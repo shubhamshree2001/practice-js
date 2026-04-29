@@ -145,3 +145,17 @@ fetch('https://api.github.com/users/shubhamshree2001')
 
 // Now we execute we notice that the functions which are written above at 
 // top of the file are executed lately but the fetch method below is executed earlier 
+
+// for fetch function special queue is maintain that is microtask queue / priority queue which wil be executed on priority
+// the result will return at first and send to call stack 
+
+// response = fetch('something')
+// fetch has two things to work on 
+// 1.  web browser/ node --> newtwork request --> if the request is send then any kind of result will be ent to fullfilled array,
+//--> if request is not send then only the result is send to the rejection array. In case of error 404 that will also be sent to fullfilled array
+// 2.  to reserve space in memory ( Data) 
+//       --> 1. on full filled[] --> this is resolve , 
+//       --> 2. on Rejection[] --> this is reject  
+// these two arrays can not be accesed directly it is not in our range to access 
+// these data arrays are initially empty
+// now these two array has function these two function full fill the data and then this data is responsible to send  to response var  in global memory
