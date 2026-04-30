@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+    <script>
+        //// +++++ lexical scoping +++++ ///
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //         console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    // try to check that inner function can access the variale of outer function
+    // Lexical scoping : inner function can access the variable or outer function.
+    // if there are multiple inner function they cannot share the variable declare inside them 
+    // and variable declared inside inner function can not be accesed by outer function as well
+
+    // function outer(){
+    //     let username = "hitesh"
+    //     console.log("OUTER", secret);
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner", username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);
+    //         console.log(secret);
+    //     }
+    //     inner()
+    //     innerTwo()
+
+    // }
+    // outer()
+    // console.log("TOO OUTER", username);
+
+
+    // +++++++ closure analysis  +++++ ///
+     // so if you observe the elowe function
+     //1. the the function define internally (display name ) is returned //it is not executed there like above example
+     //2. so when I assign  that function to a variable myFunc , so while doing this 
+     // not only the display name is returned if the outer scope is there then the entire lexical scope of the outer function is shared 
+     //so the entire outer function memory is shared not just the executional context
+     // Note : not only the funtion is returned the entire lexical scope is returned
+
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+    /// +++ below is the example / implementation of above defined things related to closure analysis ++++//// 
+    </script>
+    <!-- <script>
+        // document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = `orange`
+        // }
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = `green`
+        // }
+
+        /// this will not work 
+        // why ?  -> ecause when I will assigned it to onclick it will direclty execute 
+        // so without doing anything when I will run the app the screen will be red or green or orange 
+        // but the functionality was to when I click then only it should work 
+        //so the second function where I am returning the funtion that will work 
+         // function clickHandler(color){
+            // document.body.style.backgroundColor = `${color}`
+        //}
+
+        /// -> correct way to return 
+        // here the internal function has the access to outer function parameter colour an then it will work 
+        function clickHandler(color){
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    </script> -->
+</html>

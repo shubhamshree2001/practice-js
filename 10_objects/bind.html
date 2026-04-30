@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<!-- when we click on the button it shoud get the reference of that utton and print something 
+ creating react class here  -->
+<script>
+    class React {
+        constructor(){
+            this.library = "React"
+            this.server = "https://localhost:300"
+
+            //requirement
+            document
+                .querySelector('button')
+                .addEventListener('click', this.handleClick.bind(this)) 
+                // here we are using bind so that it binds the reference of that utton and should hold with it 
+            // we have studied .call but there it just keep the reference ut does not hold
+            // so in bind it sends complete 'this' with it  that means library / servere all is attached with it 
+
+        }
+        // click function
+        handleClick(){
+            console.log("button clicked");
+            console.log(this.server) // we just use this.handleclick in eventlistener then the statement will give undefined
+            // it wont give access to this.server // it only has button reference
+        }
+    }
+
+    const app = new React()
+</script>
+</html>

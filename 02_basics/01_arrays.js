@@ -64,3 +64,6 @@ let score2 = 200
 let score3  = 300
 
 Array.of(score1, score2, score3) // it will form an array // o/p -- [100, 200, 300]
+
+
+////+++ advance of arrays ++++. --->> study if you want to understand holes --> last video js series 51///

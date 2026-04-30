@@ -68,7 +68,7 @@ const chai2 = () => {
 
 
 const addTwoNumber = (num1, num2) => {
- return num1+ num2
+  return num1+ num2
 }
 
 // one more way of writing that is implicit return
